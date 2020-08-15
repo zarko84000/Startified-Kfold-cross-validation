@@ -22,7 +22,7 @@ def Stratified_KFold(csv_input, csv_output)
 
     kf = model_selection.StratifiedKFold(n_splits=5)
     
-    for f (t_, v_) in enumerate(kf.split(X=df, y=y)):
+    for f, (t_, v_) in enumerate(kf.split(X=df, y=y)):
         df.loc[v_, 'kfold'] = f
         
     df.to_csv(csv_output, index=False)
